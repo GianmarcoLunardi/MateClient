@@ -1,0 +1,174 @@
+
+
+<div class="container ">
+    <Br><Br><Br>
+        <table class="table table-striped">
+            <!--
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public string Name { get; set; }
+        // public IFormFile? File { get; set; }
+        // è stato scaricato
+        // 1 scaricato
+        // specificato
+        // int di enum
+        public _State State { get; set; }
+
+ 
+
+
+        // Da aggiungere come relazione
+        //public DateTimr ApprovedBy { get; set; }
+
+
+
+        // è il solito campo di file Name
+       // [Column("File Name")]
+        public string File_Name { get; set; }
+
+        public string? Category { get; set; }
+        // Marca di macchina fotografica
+        public string? Brand { get; set; }
+        //Modello della macchina Fotografica
+        public string? Model { get; set; }
+        //Lenti della macchina forografica
+        public string? Lens { get; set; }
+        // Dati relativi al immagine
+        //grandezza
+       
+        public long? Size { get; set; }
+        // Formato
+        public string? Format { get; set; }
+        //Larghezza file
+
+        //campo chiave esterna
+        //public List<Annotation> Annotations { get; set; }
+
+        //public User UpdatedBy { get; set; }
+
+        public DateTime? DonationOn { get; set; }
+        public string? DonationBy { get; set; }
+
+        public DateTime ApprovedOn { get; set; }
+        public string? ApprovedBy { get; set; }
+
+        public int? PixelX { get; set; }
+        public int? PixelY { get; set; }
+            -->
+
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Lens</th>
+                <th scope="col">Model</th>
+                <th scope="col">Size</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              
+              <tr *ngFor="let rec of this.ListaImageChecked">
+                
+                <!--Check box Per il Dovload Del File-->
+                <td>
+                  <div class="form-check">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <input class="form-check-input" type="checkbox" 
+                      [(ngModel)] = "rec.select"
+                      >
+                    </label>
+                  </div>   
+
+
+
+                </td>
+
+                
+                <!--Sinboli Che identificano lo stato del file  -->
+                <td scope="row">
+                  
+                  
+
+                  <span [ngSwitch]="rec.state">
+
+                    <i class="bi bi-check-lg" *ngSwitchCase="1"></i>
+                    <i class="bi bi-exclamation-square" *ngSwitchCase="0"></i>
+                    <i class="bi bi-asterisk" *ngSwitchCase="7"></i>
+                    <!--<span *ngSwitchDefault> d</span>   -->
+
+                    &nbsp;&nbsp;
+                  </span>
+
+                  {{rec.file_Name}}
+                
+                  
+
+                </td>
+                <td>{{rec.category}}</td>
+                <td>{{rec.brand}}</td>
+                <td>{{rec.lens}}</td>
+                <td>{{rec.model}}</td>
+                <td>{{rec.brand}}</td>
+                <td>  
+                  <div class="d-flex flex-row">
+                  <!-- Pulsante Particolare Della Foto -->
+                  <a class="btn btn-primary btn-sm active" role="button" title="Detail"
+                  
+               
+                  
+                   [routerLink]="'/detail-foto/' + rec.id"
+                  
+                  aria-pressed="true">
+
+                  
+                  <i class="bi bi-person-bounding-box"></i>
+                  </a>
+                  &nbsp;
+                  <!-- Pusante Approvazione Foto-->
+
+
+
+                  
+
+
+                    <button type="button" class="btn btn-warning btn-sm" 
+                    (click)="FotoCambiaSato(rec.id)"
+
+                    title="Validation">
+                    <i class="bi bi-asterisk"></i>
+                    </button>
+                 
+                </div>
+
+                
+                </td>
+              </tr>
+
+
+
+
+            </tbody>
+          </table>
+          <br>
+          <button type="button" (click)="clickDownload($event)"
+          class="btn btn-sm btn-outline-secondary">
+            <i class="bi bi-arrow-down-circle"></i>  Download</button>
+
+
+          <br>
+          <br>
+          <b>Legend</b> <br>
+          <i class="bi bi-check-lg"></i> = UpLoaded <br>
+          <i class="bi bi-exclamation-square"> = DownLoaded </i> <br>
+          <i class="bi bi-asterisk"> = Approved</i> <br>
+
+  </div>
+
+  <!--
+  {{this.ListaImageChecked | json}}
+  -->
+  
+

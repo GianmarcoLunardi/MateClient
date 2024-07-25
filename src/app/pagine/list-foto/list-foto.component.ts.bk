@@ -1,0 +1,94 @@
+import { Component, OnInit } from '@angular/core';
+//import { UserServiceService } from '../../services/user-service.service';
+import {ImageService} from '../../services/image.service';
+import { HttpClient } from '@angular/common/http';
+
+import { Iimage } from '../../model/Iimage';
+import { CheckedImage } from '../../model/checked-image';
+
+
+@Component({
+  selector: 'app-list-foto',
+  templateUrl: './list-foto.component.html',
+  styleUrl: './list-foto.component.css'
+})
+export class ListFotoComponent {
+//listaImage : Image[] 
+ // records : Image[];
+ urlImage : string ="http://localhost:19796/api/Image/List";
+ listaImage! : Iimage[];
+ ListaImageChecked! : CheckedImage[];
+
+
+
+ //listChecke 
+ 
+ //servicex.ListAllImages();
+  constructor(private http : HttpClient ,
+    private service : ImageService
+  ){
+    console.log("siamo dentro ilcostruttor");
+    //console.log( this.listaImage.map<CheckedImage>(x => new CheckedImage(x)) );
+
+  }
+    //console.log(servicex.listaImage);
+  //console.log(this.servicex.ListAllImages2()); 
+  //console.log("stampa La losta record del ");,
+  //this.records= this.servicex.ListAllImages2();
+  //console.log(this.servicex.ListAllImages2()); 
+
+  //console.log(this.records);
+  
+
+ngOnInit() {
+  
+  this.http.get<Iimage[]>(this.urlImage)
+  .subscribe(result => {this.listaImage=result;
+   this.ListaImageChecked = result.map<CheckedImage>(x => new CheckedImage(x));
+   console.log(this.ListaImageChecked);
+   console.log(this.listaImage);
+  } 
+  , error => console.error(error) );
+/*
+  const result = this.listaImage.map<CheckedImage>(x => new CheckedImage(x));
+ console.log(result);
+  */
+ 
+ 
+//this.listaImage = this.service.GetAllPhoto().subscribe(x=>x);
+
+
+
+
+
+  //let z  =  new CheckedImage(this.listaImage[0]);
+  //console.log(this.listaImage[0]);
+  //console.log(this.ListaImageChecked);
+
+}
+
+    //https://www.youtube.com/watch?v=zL58GoOx_F8
+  clickDownload( event : Event) {
+     
+    console.log("cliccato iul download");
+    //console.log(event);
+    //console.log(new CheckedImage(this.listaImage[2]));
+
+   // console.log(this.listaImage.map(x => new CheckedImage(x)));
+   //console.log(this.listaImage);
+   console.log("controlllo lista array");
+   const result = this.listaImage.map<CheckedImage>(x => new CheckedImage(x));
+   console.log(this.ListaImageChecked);
+  // console.log(result);
+
+   //this.ListaImageChecked = result;
+  }
+}
+/*
+
+   ImagesRead(): Image[]  {
+    return this.servicex.ListAllImages;
+  } 
+*/
+
+

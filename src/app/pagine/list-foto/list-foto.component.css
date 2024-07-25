@@ -1,0 +1,4 @@
+
+.custom-checkbox .form-check-input:checked {
+    background-color: red; 
+    border-color: red; }

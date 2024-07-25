@@ -1,0 +1,302 @@
+
+<br>
+<br>
+<div class="container-fluid p-5 bg-light bg-gradient text-center w-50">
+  <h1>Photo - Fotografia</h1>
+  <p>Please upload the page</p> 
+</div>
+
+<br>
+<br>
+
+<div class="container">
+
+
+
+  <form novalidate autocomplete="off" #form="ngForm" novalidate >
+ 
+
+<!-- Inizioo controllo file -->
+    <div class="row">
+
+
+      <div class="col-2">
+        
+      </div>
+      <div class="col-8">
+        <!--Inizio Contenuto-->
+        <div class="mb-3">
+          <label for="formFileSm" class="form-label fs-3">Upload the File</label>
+          <input class="form-control form-control-sm" id="formFileSm" type="file"
+          
+          >
+        </div>
+
+        <!-- Conteuto File-->
+      </div>
+      <div class="col-2">
+        
+      </div>
+    </div>
+
+<!--  Controllo Upload File File  -->
+
+<!-- Category -->
+
+    <div class="row">
+      <div class="col-2">
+        
+      </div>
+      <div class="col-8">
+    
+    
+        <div class="mb-3">
+          <label for="CategoryBox" class="form-label fs-3">Categori - Categoria</label>
+          <!--
+          
+          <select class="form-select" id="CategoryBox">
+            <option selected>Choose...</option>
+            <option value="1">Labeled</option>
+            <option value="2">difficult_cases</option>
+            <option value="3">unclassifiable_cases</option>
+          </select>
+         -->
+         <!-- category con imputbox 
+          
+          <input type="text" list="categorie"
+          class="form-control form-control-sm"
+          #Category="ngModel"
+          [(ngModel)] = "Dato.category" name="category">
+-->
+          <!-- <select class="form-select" aria-label="Default select example"> -->
+            <select class="form-select" [(ngModel)]="Dato.category" 
+            name = "category"
+             > 
+            
+             
+
+            <option value="Labeled">Labeled</option>
+            <option value="difficult_cases">difficult_cases</option>
+            <option value="unclassifiable_cases">unclassifiable_cases</option>
+          </select>
+
+
+        </div>
+        <!--
+        <div *ngIf="Category.errors" class="alert alert-dark" role="alert">
+          Please Insert the Category
+         </div>-->
+      </div>
+      <div class="col-2">
+        
+      </div>
+    </div>
+
+    <!--Brand-->
+
+    <div class="row">
+      <div class="col-2">
+        
+      </div>
+      <div class="col-8">
+    
+    
+        <div class="mb-3">
+          <label for="BrendBox" class="form-label fs-3">Brend -Modello Macchina Fotografica</label>
+          <input 
+          class="form-control form-control-sm"
+          [(ngModel)] ="Dato.brand" name="Brend"
+          #Brend="ngModel"
+          type="text" required>
+        </div>
+        <div  *ngIf="Brend.invalid && (Brend.dirty || Brend.touched)"  class="alert alert-dark" role="alert">
+          Please Insert the Brend's camera
+         </div>
+      </div>
+      <div class="col-2">
+        
+      </div>
+    </div>
+<!--Model  -->
+<div class="row">
+  <div class="col-2">
+    
+  </div>
+  <div class="col-8">
+
+
+    <div class="mb-3">
+      <label for="ModelBox" class="form-label fs-3">Model -Modello</label>
+      <input
+      class="form-control form-control-sm"
+      type="text"
+      [(ngModel)]="Dato.model" name="model " 
+      #model ="ngModel"
+      required> 
+
+
+    </div>
+    <div *ngIf="model.invalid && (model.dirty || model.touched)" class="alert alert-dark" role="alert">
+      Please Insert Approved By
+     </div>
+  </div>
+  <div class="col-2">
+    
+  </div>
+</div>
+
+
+    <!--Lens -->
+<div class="row">
+  <div class="col-2">
+    
+  </div>
+  <div class="col-8">
+
+
+    <div class="mb-3">
+      <label for="Lens" class="form-label fs-3">Lens - Macchina Fotografica</label>
+      <input
+      class="form-control form-control-sm"
+      name="Lens" 
+      [(ngModel)]="Dato.lens"  name="lens"
+      #lens="ngModel"
+      type="text" required>
+    </div>
+    <div *ngIf="lens.invalid && (lens.dirty || lens.touched)" 
+    class="alert alert-dark" role="alert">
+      Please Insert the Len's camera
+     </div>
+  </div>
+  <div class="col-2">
+    
+  </div>
+</div>
+<!--Donation On-->
+    <div class="row">
+      <div class="col-2">
+        
+      </div>
+      <div class="col-8">
+
+
+        <div class="mb-3">
+          <label for="DonationOnBox" class="form-label fs-3">Donation On - Donato il</label>
+          <input type="date" id="DonationOnBox"
+          class="form-control form-control-sm"
+          [(ngModel)]="Dato.donationOn" name="DonationOn"
+          #DonationOn="ngModel">
+          
+        </div>
+
+      </div>
+      <div class="col-2">
+        
+      </div>
+    </div>
+
+
+<!-- DonationBy  -->
+<div class="row">
+  <div class="col-2">
+    
+  </div>
+  <div class="col-8">
+
+
+    <div class="mb-3">
+      <label for="DonationBy" class="form-label fs-3">Donation By - Donatore o contribuente</label>
+      <input
+      class="form-control form-control-sm"
+      name="DonationBy"   #DonationBy ="ngModel"
+      [(ngModel)]="Dato.donationBy" 
+     type="text" > 
+    </div>
+    <div *ngIf="DonationBy.invalid && (DonationBy.dirty || DonationBy.touched)" 
+    class="alert alert-dark" role="alert">
+      Please Insert the Who Donate This Foto
+     </div>
+  </div>
+  <div class="col-2">
+    
+  </div>
+</div>
+
+<!--Approved On-->
+<div class="row">
+  <div class="col-2">
+    
+  </div>
+  <div class="col-8">
+
+
+    <div class="mb-3">
+      <label for="ApprovedOn" class="form-label fs-3">Approved On</label>
+      <input name="ApprovedOn" value="Date()"
+      class="form-control form-control-sm"
+      [(ngModel)] ="Dato.approvedOn" 
+      #Approved="ngModel" type="date">
+    </div>
+
+  </div>
+  <div class="col-2">
+    
+  </div>
+</div>
+
+
+
+<!--ApprovedBy  -->
+<div class="row">
+  <div class="col-2">
+    
+  </div>
+  <div class="col-8">
+
+
+    <div class="mb-3">
+      <label for="ApprovedBy" class="form-label fs-3">ApprovedBy  -Approvata da</label>
+      <input
+      class="form-control form-control-sm"
+      name="ApprovedBy" 
+      [(ngModel)]="Dato.approvedBy" 
+      #ApprovedBy ="ngModel"
+     type="text" required>
+    </div>
+    <div  *ngIf="ApprovedBy.invalid && (ApprovedBy.dirty || ApprovedBy.touched)" class="alert alert-dark" role="alert">
+      Please Insert Approved By
+     </div>
+  </div>
+  <div class="col-2">
+    
+  </div>
+</div>
+
+<!--Bottone-->
+
+<div class="row">
+  <div class="col-2">
+    
+  </div>
+  <div class="col-8">
+    <button type="submit" class="btn btn-info" (click)="CaricaFormFoto()" >Upload</button>
+  </div>
+  <div class="col-2">
+    
+  </div>
+</div>
+
+
+
+
+
+
+</form>
+  
+</div>
+
+<div class="form-val">
+<!--{{ category.errors  | json }}-->
+</div>
+<!--
+{{Dato | json}}-->

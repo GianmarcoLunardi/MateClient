@@ -9,6 +9,8 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": false,  //cambiato
+    "noUnusedParameters": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "sourceMap": true,
@@ -26,6 +28,7 @@
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
+    "strictNullChecks":false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true

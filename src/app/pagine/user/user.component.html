@@ -1,0 +1,196 @@
+
+
+
+<div class="container">
+  
+ 
+
+<Br>
+<br>
+
+<!-- Tittotlo-->
+<div class="container bg-light bg-gradient d-flex justify-content-center w-50 ">
+  <br>
+  <h2>Insert The User - Inserisci L utente</h2>
+<Br>
+ <br> 
+</div>
+<br>
+
+
+
+  <div class="d-flex justify-content-center"> 
+<!--Form-->
+<form #form="ngForm" class=" form-inline form w-25 " (ngSubmit)= "aggiungiUser()" >
+
+  
+<br>
+<!-- First Name  -->
+<div class="form group">
+    <label for="UserNameInput" class="form-label">First Name</label>
+    <input type="text" 
+    id="UserNameInput" class="form-control form-control-sm item" 
+    aria-describedby="UserNameInputHelpBlock"
+    [(ngModel)]="utente.firstName" name="name" #name ="ngModel"
+    required>
+  
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" id="UserNameInputdHelpBlock" class="form-text">
+    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+   </div> 
+</div>
+<br>
+
+
+
+<!-- LastName  -->
+<div class="form group">
+  <label for="RegistrationLastName" class="form-label">Last Name</label>
+  <input type="text" id="RegistrationLastName" class="form-control" aria-describedby="RegistrationDateInputHelpBlock"
+  [(ngModel)]="utente.lastName" name="LastName" #LastName="ngModel" required="">
+  
+
+  <div *ngIf="LastName.invalid && (LastName.dirty || LastName.touched)" id="RegistrationLastNameHelpBlock" class="form-text">
+    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+  </div>
+</div>
+  <br>
+<!--JobSection-->
+
+<div class="form group">
+  <label for="JobSectionInputAddress" class="form-label">JobSection</label>
+  <input type="text" id="JobSectionInputAddress" class="form-control" aria-describedby="NameInputHelpBlock"
+    [(ngModel)]="utente.jobSection" name="JobSection" #JobSection="ngModel" required >
+  
+    <div *ngIf="JobSection.invalid && (JobSection.dirty || JobSection.touched)" id="JobSectionInputAddressHelpBlock" class="form-text">
+  Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+  </div>
+
+</div>
+<br>
+
+<!-- Address -->
+<div class="form group">
+  <label for="NameInputAddress" class="form-label">Address</label>
+  <input type="text" id="NameInputAddress" class="form-control" aria-describedby="NameInputHelpBlock"
+    [(ngModel)]="utente.address" name="Address" #Address="ngModel" >
+
+  <div *ngIf="Address.invalid && (Address.dirty || Address.touched)"
+   id="NameInputAddressHelpBlock" class="form-text">
+  Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+  </div>
+</div>
+<br>
+<!-- City -->
+<div class="form group">
+  <label for="CityInput" class="form-label">City</label>
+  <input type="text" id="CityInput" class="form-control" aria-describedby="CityInputHelpBlock"
+  [(ngModel)]="utente.city" name="city" #city="ngModel">
+
+  <div *ngIf="city.invalid && (city.dirty || city.touched)"
+  id="CityInputHelpBlock" class="form-text">
+  Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+  </div>
+</div>
+<br>
+
+<!-- State -->
+<div class="form group">
+  <label for="StateInput" class="form-label">State</label>
+  <input type="text" id="StateInput" class="form-control" aria-describedby="StateInputtHelpBlock"
+  [(ngModel)]="utente.state" name="State" #State="ngModel">
+  
+  <div *ngIf="State.invalid && (State.dirty || State.touched)"
+  id="SurnsmeeInputtHelpBlock" class="form-text">
+  Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+  </div>
+</div>
+<br>
+
+
+
+
+<!-- Country -->
+<div class="form group">
+  <label for="CountryInput" class="form-label">Country</label>
+  <input type="text" id="CountryInput" class="form-control" form-control-sm aria-describedby="BirthInputHelpBlock"
+  [(ngModel)]="utente.country" name="Country" #Country="ngModel">
+
+  <div *ngIf="Country.invalid && (Country.dirty || Country.touched)"
+  id="CountryInputHelpBlock" class="form-text">
+  Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+</div>
+</div>
+<br>
+
+<!-- SubmittedDate -->
+<div class="form group">
+  <label for="SubmittedDateInput" class="form-label">SubmittedDateq
+  </label>
+  <input type="date" id="SubmittedDateInput" class="form-control" aria-describedby="SubmittedDateInputHelpBlock"
+  [(ngModel)]="utente.submittedDate" name="SubmittedDate" #SubmittedDate="ngModel" >
+  
+  <div *ngIf="SubmittedDate.invalid && (SubmittedDate.dirty || SubmittedDate.touched)"
+   id="RoleInputHelpBlock" class="form-text">
+  Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+  </div>
+</div>
+
+
+<br>
+
+<!-- Email -->
+  <div class="form group">
+  <label for="EmailInput" class="form-label"><i class="bi bi-envelope-open"></i>Email</label>
+  <input type="email" id="EmailInput" class="form-control" aria-describedby="EmailInputHelpBlock"
+  [(ngModel)]="utente.email" name="Email" #Email="ngModel">
+  
+  <div *ngIf="Email.invalid && (Email.dirty || Email.touched)"
+  id="RoleInputHelpBlock" SubmittedDate class="form-text">
+  Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+  </div>
+</div>
+<br>
+
+<!-- Phone -->
+<div class="form group">
+  <label for="PhoneInput" class="form-label"><i class="bi bi-telephone"></i>Phone</label>
+
+  <input type="text" id="PhoneInput" class="form-control" 
+  aria-describedby="PhoneInputHelpBlock" 
+   name="phone">
+  
+  <div  
+  *ngIf="name.invalid && (name.dirty || name.touched)"
+  id="PhoneInputHelpBlock" class="form-text">
+  Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+  </div>
+</div>
+<br>
+
+
+
+
+
+<button type="submit" class="btn btn-secondary btn-sm"
+>Add</button>
+
+
+
+
+</form>
+</div>
+
+
+<!-- Fine del tittolo-->
+
+
+</div>
+
+
+<br>
+<br>
+
+
+<!--
+
+{{utente | json}}-->
