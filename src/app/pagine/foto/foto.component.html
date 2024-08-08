@@ -256,16 +256,27 @@
 
     <div class="mb-3">
       <label for="ApprovedBy" class="form-label fs-3">ApprovedBy  -Approvata da</label>
+      
+      <!--
       <input
       class="form-control form-control-sm"
       name="ApprovedBy" 
       [(ngModel)]="Dato.approvedBy" 
       #ApprovedBy ="ngModel"
      type="text" required>
+    -->
+      <select class="form-select form-select-sm"
+      [(ngModel)]="Dato.approvedBy"  
+      id="ApprovedBy" name = "approvedBy">
+        
+      <option *ngFor="let item of UserMenu" value="{{item.id}}">{{item.name}}</option>
+    </select>
+    
+    
+    
+
     </div>
-    <div  *ngIf="ApprovedBy.invalid && (ApprovedBy.dirty || ApprovedBy.touched)" class="alert alert-dark" role="alert">
-      Please Insert Approved By
-     </div>
+
   </div>
   <div class="col-2">
     
@@ -298,5 +309,5 @@
 <div class="form-val">
 <!--{{ category.errors  | json }}-->
 </div>
-<!--
-{{Dato | json}}-->
+
+{{Dato | json}}

@@ -11,6 +11,13 @@ import { urlBase } from '../cofigurazioneGlobale';
 export class ImageService {
   url : string="http://localhost:19796/api/Image/UploadFoto";
   urlAllPhoto : string =  urlBase + "Image/List";
+
+  // Inizializzazione delgli URL
+  urlImage : string = urlBase + "Image/" + "List/";
+  urlDownload : string = urlBase + "Image/" + "GetFotoDownload/";
+
+
+
   constructor(private http:HttpClient) { }
 
   upload(x : Iimage){
@@ -26,7 +33,18 @@ export class ImageService {
 
   GetAllPhoto() : Observable<Iimage[]>
   {
+
+
+
+
     return this.http.get<Iimage[]>(this.urlAllPhoto);
+  }
+ 
+  GetAll() : Observable<Iimage[]>
+  {
+    return  this.http.get<Iimage[]>(this.urlImage)
+  //.subscribe(result => {this.listaImage=result;  
+
   }
 
 

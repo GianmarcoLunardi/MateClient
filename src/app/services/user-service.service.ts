@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Iimage } from '../model/Iimage';
 import { Observable } from 'rxjs';
 import { ImageClass } from '../model/image-class';
+import {IuserMenu} from'../model/iuser-menu';
+import { urlBase } from '../cofigurazioneGlobale';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +13,10 @@ import { ImageClass } from '../model/image-class';
 export class UserServiceService {
   // /api/Image/List
   urlImage : string ="http://localhost:19796/api/Image/List";
+  urlUser : string = urlBase + "User/";
+
   urlProva : string ="http://localhost:5000/api/Image/UploadFotoProva2";
-  url : string ="http://localhost:19796/api/User";
+ 
   // 
 
 
@@ -38,7 +42,7 @@ _http:any;
 
 
 Add(utente : IUser){
-  return this.http.post(this.url, utente)
+  return this.http.post(this.urlUser, utente)
   .subscribe(x => console.log("entrata del post"))
 }
 
@@ -71,6 +75,12 @@ Add(utente : IUser){
     return  this.http.get<Iimage[]>(this.urlImage);
   }
 
-  // Metodo per la lettura di un elelento 
+  // Metodo Cher Sestitutisce la lista dehli utenmti e il loro codic Guid
+GetMenuUsers () {
+
+  return this.http.get<Array<IuserMenu>>(this.urlUser + "GetMenu");
+
+}
+
 }
 

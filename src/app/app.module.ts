@@ -16,9 +16,10 @@ import { UserListComponent } from './pagine/user-list/user-list.component';
 import { UserDetailComponent } from './pagine/user-detail/user-detail.component';
 import { FotoDetailComponent } from './pagine/foto-detail/foto-detail.component';
 
-
 // service
-import{ImageService} from './services/image.service';
+import{ImageService } from './services/image.service';
+import{UserServiceService} from'./services/user-service.service';
+
 import { JsonComponent } from './pagine/json/json.component';
 import { UploadComponent } from './pagine/upload/upload.component'
 @NgModule({
@@ -44,7 +45,9 @@ import { UploadComponent } from './pagine/upload/upload.component'
 
 
   ],
-  providers: [ImageService],
+  providers: [ImageService, UserServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

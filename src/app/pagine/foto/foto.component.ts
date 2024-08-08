@@ -15,7 +15,7 @@ import { UserListComponent } from '../user-list/user-list.component';
   templateUrl: './foto.component.html',
   styleUrl: './foto.component.css'
 })
-export class FotoComponent {
+export class FotoComponent implements OnInit {
   //Dato : ImageClass = new ImageClass();
 
   primo : IuserMenu = {
@@ -24,7 +24,7 @@ export class FotoComponent {
   };
 
 
-  UserMenu! : IuserMenu[] ;// = new Array<IuserMenu>();
+  UserMenu : IuserMenu[] = [];
 
   Dato: Iimage = {
     id:"",
@@ -109,17 +109,27 @@ export class FotoComponent {
 
 ngOnInit(){
 
+// GetMenu Inizio
+//  this.http.get<Array<IuserMenu>>('http://localhost:19796/api/User/GetMenu')
+//  .subscribe(result =>{this.UserMenu=result;} 
+//  , error => console.error(error) );
 
-  this.http.get<Array<IuserMenu>>('http://localhost:19796/api/User/GetMenu')
-  .subscribe(result =>{this.UserMenu=result;} 
-  , error => console.error(error) );
+// this.UserMenu.push(this.primo);
 
-this.UserMenu.push(this.primo);
+// GetMenu Fine
+
+console.log("Foto - Ng On Init");
+
+this.service.GetMenuUsers()
+.subscribe(x => x.forEach(x => this.UserMenu.push(x)) );
+
+console.log("Foto - UserMenu");
+console.log(this.UserMenu);
 
 this.Dato.approvedOn = new Date();
 this.Dato.donationOn = new Date();
 
-  console.log("Foto - Menu Utenti");
+  console.log("Foto - Menu Utenti Dato Domation");
   console.log(this.Dato.donationOn);
 //console.log(this.UserMenu);
 

@@ -8,6 +8,7 @@ import { saveAs } from "file-saver";
 import { Iimage } from '../../model/Iimage';
 import { CheckedImage } from '../../model/checked-image';
 import { urlBase } from '../../cofigurazioneGlobale';
+import { subscribeOn, Subscriber } from 'rxjs';
 
 
 @Component({
@@ -41,7 +42,7 @@ IdImage : string = "bc58bc5c-cc3c-4c2e-87eb-002ba689b083";
  
  //servicex.ListAllImages();
   constructor(private http : HttpClient ,
-    private service : ImageService
+              private service : ImageService
   ){
     console.log("siamo dentro ilcostruttor");
     //console.log( this.listaImage.map<CheckedImage>(x => new CheckedImage(x)) );
@@ -71,6 +72,9 @@ ngOnInit() {
   this.http.get<Iimage[]>(this.urlImage)
   .subscribe(result => {this.listaImage=result;
 
+  
+
+    
     console.log("Lista delle Foto");
     console.log(this.listaImage);
    this.ListaImageChecked = result.map<CheckedImage>(x => new CheckedImage(x));
